@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  shotPrefab: {fileID: 0}
+  defaultTimer: 0.19
+  timer: 1
+  shotPrefab: {fileID: 6416523941609251189, guid: aa0d6f7a6cd6148488138ec853a915db, type: 3}
 --- !u!50 &648420790661050074
 Rigidbody2D:
   serializedVersion: 4
@@ -146,8 +148,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -783097337
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 713003262, guid: e9abc8eeef461e64fb37fa4bf57527e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
