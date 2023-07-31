@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
-    [SerializeField] private float defaultTimer = 0.3f;
-    [SerializeField] private float timer = 1f;
+    //[SerializeField] private float defaultTimer = 0.3f;
+    //[SerializeField] private float timer = 1f;
 
     [SerializeField] GameObject shotPrefab;
+    [SerializeField] Transform positionShotPlayer;
 
     private Rigidbody2D myRB;
 
+    [SerializeField] private int life = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +31,18 @@ public class PlayerController : MonoBehaviour
         mySpeed.Normalize();
 
         myRB.velocity = mySpeed * speed;
-
         fire();
 
+        if(life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
     void fire()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(shotPrefab, transform.position, transform.rotation);
+            Instantiate(shotPrefab, positionShotPlayer.position, transform.rotation);
         }
         //else
         //{
@@ -45,10 +50,15 @@ public class PlayerController : MonoBehaviour
         //    if (timer <= 0f)
         //    {
         //        timer = defaultTimer;
-        //        Instantiate(shotPrefab, transform.position, Quaternion.identity);
+        //        Instantiate(shotPrefab, transform.position, transform.rotation);
 
         //    }
 
         //}
+    }
+
+    public void loseLife(int damage)
+    {
+        life = life - damage;
     }
 }
