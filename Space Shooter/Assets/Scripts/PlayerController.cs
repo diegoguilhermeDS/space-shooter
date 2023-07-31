@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 5f;
+    [SerializeField] private float defaultTimer = 0.3f;
+    [SerializeField] private float timer = 1f;
+
     [SerializeField] GameObject shotPrefab;
 
     private Rigidbody2D myRB;
@@ -38,8 +41,13 @@ public class PlayerController : MonoBehaviour
         }
         //else
         //{
+        //    timer -= Time.deltaTime;
+        //    if (timer <= 0f)
+        //    {
+        //        timer = defaultTimer;
+        //        Instantiate(shotPrefab, transform.position, Quaternion.identity);
 
-        //    Instantiate(shotPrefab, new Vector3(myRB.position.x, myRB.position.y + .75f, 0), Quaternion.identity);
+        //    }
 
         //}
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ShotController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
+
     private GameObject shotObject;
 
     private Rigidbody2D shotRB;
