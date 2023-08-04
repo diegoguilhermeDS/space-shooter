@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1764258626301693418}
   m_Layer: 6
   m_Name: EnemieOne
-  m_TagString: EnemieOne
+  m_TagString: Enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7612773361327703273}
   - {fileID: 4186837046416599840}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &28733892692070258
 Rigidbody2D:
@@ -76,10 +76,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedEnemie: -3
+  lifeEnemie: 1
+  explosionPrefab: {fileID: 4355093331014574442, guid: 3e35cb8b569ae8240959231c1d00b88d, type: 3}
   myShot: {fileID: 1018132473150956640, guid: 8b6aa0198b038c0449c6eda6a2f3d886, type: 3}
+  speedShot: 5
   positionShot: {fileID: 4186837046416599840}
-  awaitShot: 1
-  lifeEnemie: 10
 --- !u!70 &1764258626301693418
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +110,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.028244436, y: -0.0104055405}

@@ -5,16 +5,13 @@ using UnityEngine;
 
 public class ShotController : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
     [SerializeField] private GameObject impactPrefab;
     private Rigidbody2D shotRB;
-
 
     // Start is called before the first frame update
     void Start()
     {
         shotRB = GetComponent<Rigidbody2D>();
-        shotRB.velocity = new Vector2(0f, speed);
     }
 
     // Update is called once per frame
@@ -25,13 +22,13 @@ public class ShotController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("EnemieOne")) {
-            collision.GetComponent<EnemieOneController>().loseLifeEnemie(2);
+        if (collision.CompareTag("Enemie")) {
+            collision.GetComponent<Enemie>().loseLifeEnemie(1);
         } 
 
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerController>().loseLife(5);
+            collision.GetComponent<PlayerController>().loseLife(1);
         }
 
         Destroy(gameObject);

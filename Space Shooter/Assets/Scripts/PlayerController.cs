@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
     //[SerializeField] private float defaultTimer = 0.3f;
     //[SerializeField] private float timer = 1f;
 
-    [SerializeField] GameObject shotPrefab;
-    [SerializeField] Transform positionShotPlayer;
+    [SerializeField] private GameObject shotPrefab;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private Transform positionShotPlayer;
 
     private Rigidbody2D myRB;
-
-    [SerializeField] private int life = 50;
+    [SerializeField] private int life = 10;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speedShot = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+        fire();
+
+
+    }
+
+    private void Move()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -31,18 +40,14 @@ public class PlayerController : MonoBehaviour
         mySpeed.Normalize();
 
         myRB.velocity = mySpeed * speed;
-        fire();
-
-        if(life <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
+
     void fire()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(shotPrefab, positionShotPlayer.position, transform.rotation);
+            GameObject shot = Instantiate(shotPrefab, positionShotPlayer.position, transform.rotation);
+            shot.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, speedShot);
         }
         //else
         //{
@@ -59,6 +64,13 @@ public class PlayerController : MonoBehaviour
 
     public void loseLife(int damage)
     {
-        life = life - damage;
+        life -= damage;
+
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
+        }
+
     }
 }

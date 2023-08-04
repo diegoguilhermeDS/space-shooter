@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3578693090085875932}
   - component: {fileID: 2174533771650102647}
   m_Layer: 9
-  m_Name: tiro_1
+  m_Name: Shot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
