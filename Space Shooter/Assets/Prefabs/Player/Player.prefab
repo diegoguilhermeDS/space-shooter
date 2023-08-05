@@ -48,12 +48,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e49dd45ca47b3a43837ba89bf04feb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 6416523941609251189, guid: aa0d6f7a6cd6148488138ec853a915db, type: 3}
-  explosionPrefab: {fileID: 4355093331014574442, guid: 3e35cb8b569ae8240959231c1d00b88d, type: 3}
   positionShotPlayer: {fileID: 5007123774300754474}
-  life: 3
+  shotPrefab: {fileID: 6416523941609251189, guid: aa0d6f7a6cd6148488138ec853a915db, type: 3}
+  shotTwoPrefab: {fileID: 6933344638147356804, guid: f0daa1064fbb3f0449724a0d80fbcf92, type: 3}
+  explosionPrefab: {fileID: 4355093331014574442, guid: 3e35cb8b569ae8240959231c1d00b88d, type: 3}
+  life: 20
   speed: 5
   speedShot: 10
+  speedShotTwo: 16
+  limitX: 8.32
+  limitY: 4.39
+  levelShot: 2
 --- !u!50 &648420790661050074
 Rigidbody2D:
   serializedVersion: 4
