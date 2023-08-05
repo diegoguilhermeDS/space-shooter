@@ -9,7 +9,8 @@ public class Enemie : MonoBehaviour
     [SerializeField] protected GameObject explosionPrefab;
     [SerializeField] protected GameObject myShot;
     [SerializeField] protected float speedShot = 5f;
-    protected float awaitShot = 1f;
+    [SerializeField] protected float awaitShot = 1f;
+    [SerializeField] protected int points = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +26,18 @@ public class Enemie : MonoBehaviour
 
     public void loseLifeEnemie(int damage)
     {
-        lifeEnemie -= damage;
-
-        if (lifeEnemie <= 0)
+        if (transform.position.y <= 5)
         {
-            Destroy(gameObject);
-            Instantiate(explosionPrefab, transform.position, transform.rotation);
+            lifeEnemie -= damage;
+
+            if (lifeEnemie <= 0)
+            {
+                Destroy(gameObject);
+                Instantiate(explosionPrefab, transform.position, transform.rotation);
+                var generator = FindObjectOfType<EnemyGenerator>();
+                generator.DecreeaseAmountOfEnemies();
+                generator.Earnpoints(points);
+            }
         }
 
     }
@@ -40,6 +47,8 @@ public class Enemie : MonoBehaviour
         if (collision.CompareTag("DestroyShot"))
         {
             Destroy(gameObject);
+            var generator = FindObjectOfType<EnemyGenerator>();
+            generator.DecreeaseAmountOfEnemies();
         }
 
     }
@@ -49,6 +58,8 @@ public class Enemie : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            var generator = FindObjectOfType<EnemyGenerator>();
+            generator.DecreeaseAmountOfEnemies();
             Instantiate(explosionPrefab, transform.position, transform.rotation);
             other.gameObject.GetComponent<PlayerController>().loseLife(2);
         }

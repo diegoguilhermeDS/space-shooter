@@ -75,11 +75,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7fab5d56da6d14458b5ec3f4eec3f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedEnemie: -3
+  speedEnemie: -1.5
   lifeEnemie: 1
   explosionPrefab: {fileID: 4355093331014574442, guid: 3e35cb8b569ae8240959231c1d00b88d, type: 3}
   myShot: {fileID: 1018132473150956640, guid: 8b6aa0198b038c0449c6eda6a2f3d886, type: 3}
-  speedShot: 5
+  speedShot: 4
+  awaitShot: 2
+  points: 10
   positionShot: {fileID: 4186837046416599840}
 --- !u!70 &1764258626301693418
 CapsuleCollider2D:
